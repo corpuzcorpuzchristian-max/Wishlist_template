@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Christian - Wish List</title>
+    <!-- Use only the main Tailwind script for simplicity -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-red: #E53E3E; /* Tailwind red-600 */
+            --dark-black: #1A1A1A;
+            --off-white: #E5E5E5;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--dark-black);
+            color: var(--off-white);
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+        /* Custom class for the dramatic red circle background */
+        .dramatic-circle {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: var(--primary-red);
+            border-radius: 50%;
+            box-shadow: 0 0 100px rgba(229, 62, 62, 0.5); /* Subtle glow effect */
+            z-index: 1;
+            /* Adaptive size for desktop */
+            max-width: 600px;
+            max-height: 600px;
+        }
+
+        /* Existing styles: Apply a dark, high-contrast filter to the profile image */
+        .hero-profile-image {
+            /* Black and White (grayscale: 100%) and dark contrast */
+            filter: grayscale(100%) contrast(150%) brightness(90%);
+            transition: filter 0.5s ease-in-out;
+        }
+        
+        .hero-profile-image:hover {
+            filter: grayscale(100%) contrast(180%) brightness(100%);
+        }
+
+        /* NEW: Hyper-Contrast Filter for Wish List Item Images */
+        .high-contrast-item-image {
+            /* High contrast, darkens shadows, and slightly desaturated */
+            filter: contrast(180%) brightness(70%) saturate(50%);
+            transition: filter 0.3s ease-in-out;
+        }
+
+        .high-contrast-item-image:hover {
+            /* Removes the filter on hover for a subtle effect */
+            filter: contrast(100%) brightness(100%) saturate(100%);
+        }
+
+        /* Styling for the sticky header with backdrop effect */
+        .header-bg {
+            background-color: rgba(26, 26, 26, 0.8); /* Semi-transparent dark black */
+            backdrop-filter: blur(5px);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+</head>
+<body class="selection:bg-red-600 selection:text-black">
+
+    <!-- Header Navigation (Sticky with backdrop blur) -->
+    <header class="sticky top-0 z-50 header-bg py-6 px-4 md:px-12 flex justify-between items-center text-xl">
+        <div class="font-extrabold tracking-wider text-2xl text-red-600">Christian</div>
+        <nav class="hidden md:block">
+            <a href="#hero" class="px-4 text-gray-300 hover:text-red-600 transition duration-300">About</a>
+            <a href="#projects" class="px-4 text-gray-300 hover:text-red-600 transition duration-300">Wish</a>
+        </nav>
+    </header>
+
+    <main class="relative z-0">
+
+        <!-- Hero Section -->
+        <section id="hero" class="relative min-h-[80vh] flex flex-col md:flex-row items-center justify-center pt-8 md:pt-0 pb-16">
+            
+            <!-- Left Side: Image and Red Circle -->
+            <div class="w-full md:w-1/2 flex justify-center items-center relative min-h-[400px] md:min-h-[600px] order-2 md:order-1">
+                <div class="dramatic-circle w-[80vw] h-[80vw] md:w-[600px] md:h-[600px]"></div>
+                
+                <div class="hero-image-container w-[95%] h-[95%] p-0">
+                    <!-- FIX: Updated the image source to use the uploaded file name -->
+                    <img 
+                        src="images/peace.jpg" 
+                        alt="Stylized Profile Portrait"
+                        class="relative w-full h-full object-cover z-20 rounded-full shadow-2xl shadow-black/80 hero-profile-image"
+                        onerror="this.src='https://placehold.co/500x500/1A1A1A/E53E3E?text=IMAGE%20ERROR%20(Placeholder)'"
+                    >
+                </div>
+            </div>
+
+            <!-- Right Side: Text Content -->
+            <div class="w-full md:w-1/2 p-8 md:pl-20 order-1 md:order-2">
+                <h1 class="text-6xl sm:text-7xl lg:text-8xl font-black mb-4 leading-tight">
+                    Hi, <br> I'm <span class="text-red-600">Christian</span>
+                </h1>
+                <p class="text-2xl font-light text-gray-400 mb-6">
+                    Christmas And My Birthday Is Coming up on December 8th and i accept gifts throughout the entire month of December.
+                </p>
+                <p class="text-base text-gray-500 max-w-lg mb-8">
+                    Check My Wish List Below!!!:)
+                </p>
+            </div>
+
+        </section>
+
+        <!-- Wish List Section -->
+        <section id="projects" class="py-24 px-4 md:px-12">
+            <h2 class="text-4xl font-bold text-center mb-12 text-red-600">The Holiday Wish List</h2>
+            
+            <!-- Items Grid -->
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- Item 1: Upper Body Part (Hoodie) -->
+                <div class="bg-gray-800/50 p-6 rounded-xl border border-red-900/50 hover:border-red-600 transition duration-300">
+                    <a href="images/cap.jpg">
+                        <img 
+                        src="images/cap.jpg" 
+                        alt="Upper Body Clothing item"
+                        class="w-full h-40 object-cover rounded-lg mb-4 high-contrast-item-image"
+                        onerror="this.src='https://placehold.co/600x400/374151/D1D5DB?text=HOODIE+IMAGE+MISSING'"
+                    />
+                    </a>
+                    <h3 class="text-2xl font-semibold text-off-white mb-2">Cap</h3>
+                    <p class="text-gray-500">any color of cap wag lang sana black please meron nako eh.</p>
+                </div>
+
+                <!-- Item 2: Footwear (Placeholder) -->
+                <div class="bg-gray-800/50 p-6 rounded-xl border border-red-900/50 hover:border-red-600 transition duration-300">
+                    <a href="images/jordan.jpg">
+                         <img 
+                        src="images/jordan.jpg" 
+                        alt="Placeholder for Shoes"
+                        class="w-full h-40 object-cover rounded-lg mb-4 high-contrast-item-image"
+                         />
+                     </a>
+                    <h3 class="text-2xl font-semibold text-off-white mb-2">Basketball shoes</h3>
+                    <p class="text-gray-500">Jordan Luka.77(white), Size 45 - US Size 9.5.</p>
+                </div>
+                
+                <!-- Item 3: Gaming Equipment (Placeholder) -->
+                <div class="bg-gray-800/50 p-6 rounded-xl border border-red-900/50 hover:border-red-600 transition duration-300">
+                    <a href="images/controller.jpg">
+                        <img 
+                        src="images/controller.jpg" 
+                        alt="Placeholder for Gaming Gear"
+                        class="w-full h-40 object-cover rounded-lg mb-4 high-contrast-item-image"
+                    />
+                    </a>
+                    <h3 class="text-2xl font-semibold text-off-white mb-2">PC Gaming Upgrade(controller)</h3>
+                    <p class="text-gray-500">Dragonwar Dragon shock controller (pref black color).</p>
+                </div>
+                
+                <!-- Item 4: Lower Body Part (Pants - Placeholder) -->
+              <div class="bg-gray-800/50 p-6 rounded-xl border border-red-900/50 hover:border-red-600 transition duration-300">
+                <a href="images/books.jpg">
+                     <img 
+                        src="images/books.jpg" 
+                        alt="Placeholder for Gaming Gear"
+                        class="w-full h-40 object-cover rounded-lg mb-4 high-contrast-item-image"
+                    />
+                </a>
+                    <h3 class="text-2xl font-semibold text-off-white mb-2">Books</h3>
+                    <p class="text-gray-500">Title:never go back,  7 habbits of highly effective teens, how to win friends  and influence other people,  the way of the superior man by david deida, meditations by marcus aurelius. </p>
+                </div>
+                
+                <!-- Item 5: Tech / Gadget (Placeholder) -->
+                <div class="bg-gray-800/50 p-6 rounded-x1 border border-red-900/50 hover:border-red-600 transition duration-300">
+                    <a href="images/helmet.jpg">
+                        <img
+                       src="images/helmet.jpg"
+                       alt="Placeholder for Rides"
+                       class="w-full h-40 object-cover rounded-lg mb-4 high-contrast-item-image"
+                     />
+                    </a>
+                     <h3 class="text-2xl font-semibold text-off-white mb-2">Helmet</h3>
+                     <p class="text-gray-500">Gillie helmet (AEGIS FULL VISOR BLACK OR MATTE BLACK SIZE LARGE 59-60CM). </p>
+                  </div>
+                
+                <!-- Item 6: Something Random (Placeholder) -->
+                <div class="bg-gray-800/50 p-6 rounded-xl border border-red-900/50 hover:border-red-600 transition duration-300">
+                 <a href="images/coffee.jpg">
+                    <img
+                     src="images/coffee.jpg"
+                     alt="Placeholder for coffee"
+                     class="w-full h-40 object-cover rounded-lg mb-4 high-contrast-item-image"
+                   />
+                 </a>
+                   <h3 class="text-2xl font-semibold text-off-white mb-2">Coffee grinder</h3>
+                   <p class="text-gray-500">Coffee Grinder for my coffee set hehe.</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="text-center py-8 text-sm text-gray-600 border-t border-red-900/20">
+        &copy; 2025 Christian's Wish List. All Rights Reserved.
+    </footer>
+
+</body>
+</html>
